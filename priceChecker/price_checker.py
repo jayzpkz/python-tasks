@@ -6,27 +6,40 @@ def priceCheck(products: List[str], productPrices: List[float], productSold: Lis
     database, the price of each item is typed in manually. This method sometimes leads to errors. Given a
     list of items and their correct prices, compare the prices to those entered when each item was sold.
     Determine the number of errors in selling prices
+    
+    :param products: list of all possible shop products
+    :param productPrices: list of prices of all possible shop products
+    :param productSold: list of all sold products
+    :param soldPrice: list of prices of all sold products
+    :return: the number of products sold for the wrong price
     '''
+    # Check if any of the parameters is not of type list
     if type(products) is not list or type(productPrices) is not list or type(productSold) is not list or type(soldPrice) is not list:
         raise TypeError("All passed arguments must be of type list")
     
+    # Check if any of the parameters has no elements
     if len(products) == 0 or len(productPrices) == 0 or len(productSold) == 0 or len(soldPrice) == 0:
-        raise ValueError("One or more of the passed arguments must contain at least one element")
+        raise ValueError("One or more of the passed arguments has not elements")
     
+    # Check if any of the parameters has more than 99 elements
     if len(products) > 99 or len(productPrices) > 99 or len(productSold) > 99 or len(soldPrice) > 99:
         raise OverflowError("One or more of the passed arguments must contain too many elements")
     
+    # Check if the first 2 parameters or the last 2 parameters lengths does not match
     if len(products) != len(productPrices) or len(productSold) != len(soldPrice):
         raise ValueError("One or more of the following pair of lists does not have equal number of elements: products and productPrices or productSold and soldPrice")
     
+    # Check if all sold products are valid products that available in the shop
     for product in productSold:
         if product not in products:
             raise ValueError("It is not possible to sell a product that does not exist in the products list")
     
+    # Check if all product prices are at least 1.0
     for price in productPrices:
         if price < 1.0:
             raise ValueError("product price must be at least 1.0")
-        
+    
+    # Check if all sold product prices are at most 100,000.00
     for price in soldPrice:
         if price > 100000.0:
             raise ValueError("product price can not be greater than 100,000.00")
