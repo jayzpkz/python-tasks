@@ -10,7 +10,7 @@ def test_department_summary():
     This function tests the department_summary function by creating tables, inserting test data, calling department_summary function, 
     asserting that the output is correct, cleaning up the data and then cleaning up the tables.
 
-    :return None
+    :return: None
     """
     
     # Connect to the database
