@@ -16,7 +16,7 @@ def department_summary(cursor, db):
         
         :param cursor: cursor object connected to the database
         :param db: database object
-        :return rows data from the table after executing the query, otherwise None
+        :return: rows data from the table after executing the query, otherwise None
     """
   
     try:
