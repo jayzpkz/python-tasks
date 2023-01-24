@@ -2,7 +2,7 @@ def summer(num: int):
     """
         Sum the digits of num using recursion
         
-        :params num: number of type int
+        :param num: number of type int
         :return: the sum of the digits of the number
     """
     if not isinstance(num, int):
