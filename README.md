@@ -1,6 +1,6 @@
 # Description
 
-This repository will contain 4 tasks:
+This repository will contain 4 tasks in python:
 
 1) priceChecker
 2) departmentSummary
